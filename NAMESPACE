@@ -1,0 +1,5 @@
+useDynLib(perfectphyloR, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+importFrom("stats", "cor","sd")
+importFrom("graphics", "plot")
+exportPattern("^[[:alpha:]]+")
