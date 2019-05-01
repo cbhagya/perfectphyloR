@@ -14,37 +14,62 @@ knitr::opts_chunk$set(
 ```
 # perfectphyloR
 
-The goal of the package perfectphyloR is to reconstruct perfect phylogenies underlying a sample of DNA sequences, at a focal single-nucleotide variant (SNV). A perfect phylogeny is a rooted binary tree that recursively partitions DNA sequences. Their nested partition structures provide insight into the pattern of ancestry of DNA sequence data. For example, disease sequences may cluster together in a local partition indicating that they arise from a common ancestral haplotypes. Therefore, the availability of an R package that reconstructs perfect phylogenies should be useful to researchers seeking the ancestral structure of their sequence data. 
+This R package, perfectphyloR is to reconstruct perfect phylogenies underlying a sample of DNA sequences, at a focal single-nucleotide variant (SNV). A perfect phylogeny is a rooted binary tree that recursively partitions DNA sequences. Their nested partition structures provide insight into the pattern of ancestry of DNA sequence data. For example, disease sequences may cluster together in a local partition indicating that they arise from a common ancestral haplotypes. Therefore, the availability of an R package that reconstructs perfect phylogenies should be useful to researchers seeking the ancestral structure of their sequence data. 
 
 
 ## Installation
 
-You can install the released version of perfectphyloR from [CRAN](https://CRAN.R-project.org) with:
+You can install perfectphyloR from github with:
 
-``` r
-install.packages("perfectphyloR")
+```{r gh-installation, eval = FALSE}
+
+# install.packages("devtools")
+devtools::install_github("cbhagya/perfectphyloR")
+
 ```
+
+
+
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+To reconstruct a perfect phylogeny, you have to first create an object of class `hapMat`.
+`createHapMat()` allows you to create this new object. To illustrate, we consider a toy example with 4 haplotypes and 4 SNVs.
 
-```{r example}
-## basic example code
+```{r warning=FALSE}
+library(perfectphyloR)
+ # Haplotype matrix
+ haplo_mat <- matrix(c(1,1,1,0,
+                       0,0,0,0,
+                       1,1,1,1,
+                       1,0,0,0), byrow = TRUE, ncol = 4)
+ # SNV names
+ SNV_names <- c(paste("SNV", 1:4, sep = ""))
+ # Haplotype names
+ hap_names <- c("h1", "h2", "h3", "h4")
+ # SNV positions in base pairs
+ SNV_posns <- c(1000, 2000, 3000, 4000)
+ ex_hapMat <- createHapMat(hapmat = haplo_mat,
+                           snvNames = SNV_names,
+                           hapNames = hap_names ,
+                           posns = SNV_posns)
+ ex_hapMat
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+Once the `hapMat` object is created, you can reconstruct the perfect phylogeny partition with the function
+`reconstructPP()`. To illustrate, we show how to reconstruct partition at the second SNV position of `ex_hapMat`.
 
-```{r cars}
-summary(cars)
+```{r}
+# Reconstruct the partition at the SNV position 2.
+rdend <- reconstructPP(hapMat = ex_hapMat,
+                        focalSNV = 2,
+                        minWindow = 1,
+                        sep = "-")
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+You can use `plotDend()` to plot the dendrogram structure of reconstructed partitions at a focal point. The 
+following example shows how you can plot the reconstructed partition `rdend`.
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r}
+plotDend(rdend, direction = "downwards")
 ```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
