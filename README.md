@@ -3,7 +3,11 @@
 perfectphyloR
 =============
 
+<<<<<<< HEAD
 This R package, perfectphyloR is to reconstruct perfect phylogenies underlying a sample of DNA sequences, at a focal single-nucleotide variant (SNV). A perfect phylogeny is a rooted binary tree that recursively partitions DNA sequences. Their nested partition structures provide insight into the pattern of ancestry of DNA sequence data. For example, disease sequences may cluster together in a local partition indicating that they arise from a common ancestral haplotypes. Therefore, the availability of an R package that reconstructs perfect phylogenies should be useful to researchers seeking the ancestral structure of their sequence data.
+=======
+The goal of the package perfectphyloR is to reconstruct perfect phylogenies underlying a sample of DNA sequences, at a focal single-nucleotide variant (SNV). A perfect phylogeny is a rooted binary tree that recursively partitions DNA sequences. Their nested partition structures provide insight into the pattern of ancestry of DNA sequence data. For example, disease sequences may cluster together in a local partition indicating that they arise from a common ancestral haplotypes. Therefore, the availability of an R package that reconstructs perfect phylogenies should be useful to researchers seeking the ancestral structure of their sequence data.
+>>>>>>> b53e1fb93a9a0056c01737c6a903d7ee16b3c664
 
 Installation
 ------------
