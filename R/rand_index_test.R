@@ -30,8 +30,30 @@ RandIndexTest <- function(dend1, dend2, k, nperm){
   
 
   group1 = dendextend::cutree(dend1, k = k)
-  group2 = dendextend::cutree(dend2, k = k)
-
+  g2 = dendextend::cutree(dend2, k = k)
+  
+  #################
+  
+  splitTips = strsplit(attr(g2,"names"), split="-") 
+  
+  allHaps = unlist(splitTips) 
+  
+  
+  x1 = rep(as.numeric(g2[1]), length(splitTips[[1]]))
+  
+  for(i in 2:length(splitTips)){
+    
+    x2 = rep(as.numeric(g2[i]), length(splitTips[[i]]))
+    x1 = append(x1, x2)
+    
+  }
+  
+  class(x1)
+  attr(x1, "names") = allHaps
+  
+  
+  ################
+  group2 = x1
   RIObs <- RandIndex(group1, group2)
 
   if(nperm > 0){
@@ -67,7 +89,6 @@ RandIndexTest <- function(dend1, dend2, k, nperm){
 
 RandIndex = function(group1, group2){
 
-  if(length(group1) == length(group2)){
     
     # Compute Rand index
     x <- abs(sapply(group1, function(x) x - group1))
@@ -79,25 +100,6 @@ RandIndex = function(group1, group2){
     RI <- 1 - sg/bc
     
     return(RI)
-  }else{ 
-    # Adjusted Rand Index for different sizes of groups.
-    a <- length(table(group1))
-    N <- length(group1)
-    ctab <- matrix(NA, a, a)
-    for (j in 1:a) {
-      for (i in 1:a) {
-        ctab[j, i] <- length(which(group2[which(group1 == 
-                                                  i)] == j))
-      }
-    }
-    sumnij <- sum(choose(ctab, 2))
-    sumai <- sum(choose(colSums(ctab), 2))
-    sumbj <- sum(choose(rowSums(ctab), 2))
-    Ntwo <- choose(N, 2)
-    ari <- abs((sumnij - (sumai * sumbj)/Ntwo)/(0.5 * (sumai + 
-                                                         sumbj) - (sumai * sumbj)/Ntwo))
-    return(ari)
-  }
 }
 
 
