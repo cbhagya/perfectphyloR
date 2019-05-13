@@ -9,7 +9,7 @@
 #' @param hapMat An object of \code{hapMat}.
 #' @param nperm The number of times to permute the rows and columns of \code{Dy}.
 #' @param method  Association methods. Use "HHG" for HHG test, "dCor" for dCor test, "Mantel" for 
-#'               mantel test, "RV" for RV test and "RI" for Rand index test.
+#'               mantel test, "RV" for RV test.
 #' @param xlab An optional character string for the label on the x-axis(none by default). 
 #' @param ylab An optional character string for the label on the y-axis(none by default).
 #' @param main An optional character string for title(none by default).
