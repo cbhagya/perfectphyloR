@@ -7,7 +7,7 @@
 makeNewickRec(node, sep)
 }
 \arguments{
-\item{node}{Tree node}
+\item{node}{Tree(dend) node}
 
 \item{sep}{A separator for haplotype names in the same clade. See the arguments in
 \code{\link{reconstructPP}}.}
