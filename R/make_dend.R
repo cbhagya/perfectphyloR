@@ -24,10 +24,7 @@ makeDend = function(hapmat, sep = "-") {
 #   haplotypes in the clade. This is probably not what a user wants.
 ltree = makePartition(hapmat, splitSNV = 1) # our list-based data structure
 ntree = dendToNewick(ltree, sep = sep) # Newick format -- see make_dend_utility_functions.R
-#require(ape)
-# Try this
-#ptree = read.tree(text = ape::write.tree(ntree)) # ptree is of class phylo
-#
+
 
 ptree <- phytools::read.newick(text = ntree)
 return(ptree)
