@@ -1,14 +1,14 @@
 
 #' Mantel test for association of two distance matirces
 #' 
-#' This function performs Mantel test for correlation between two matrices. It 
-#' computes p-value by randomly permuting rows and columns of the second matrix. 
+#' This function performs Mantel test for correlation between two distance matrices. It 
+#' computes P value by randomly permuting rows and columns of the second matrix. 
 #'
 #' @param Dx  A numeric matrix of pairwise distances.
 #' @param Dy  A second numeric matrix of pairwise distances.
 #' @param nperm The number of times to permute the rows and columns of \code{Dy}.
 #'
-#' @return A list contains Mantel statistic and permutation p-value.
+#' @return A list contains Mantel statistic and permutation P value.
 #' 
 #' @references Mantel, N. (1967) The detection of disease clustering and a generalized
 #'             regression approach. Cancer Research, 27, 209 - 220.

@@ -7,7 +7,7 @@
 orderColsAncestry(M)
 }
 \arguments{
-\item{M}{hapMat pbject with compatible SNVs.}
+\item{M}{hapMat object with compatible SNVs.}
 }
 \value{
 A hapMat object with SNVs ordered according to their ancestry.

@@ -1,16 +1,16 @@
 #' dCor test for similarity of two matrices
 #' 
 #' This function performs dCor test for association between two distance matrices and computes permutation 
-#' p-value. Permutation p-value is computed by randomly permuting rows and columns of the 
+#' P value. Permutation P value is computed by randomly permuting rows and columns of the 
 #' second distance matrix.
 #'
 #' @param Dx A numeric matrix of pairwise distances.
 #' @param Dy A second numeric matrix of pairwise distances.
 #' @param nperm The number of times to permute the rows and columns of \code{Dy}.
 #'
-#' @return A list contains RV coefficient and permutation p-value.
+#' @return A list contains RV coefficient and permutation P value.
 #' 
-#' @references  G. J. Szekely, M. L. Rizzo,and N. K. Bakirov. (2007). Measuring and testing dependence 
+#' @references  G. J. Szekely, M. L. Rizzo, and N. K. Bakirov. (2007). Measuring and testing dependence 
 #'              by correlation of distances. The Annals of Statistics, 35(6):2769 - 2794.
 #' 
 #' @export

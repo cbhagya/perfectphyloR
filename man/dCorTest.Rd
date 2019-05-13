@@ -14,11 +14,11 @@ dCorTest(Dx, Dy, nperm)
 \item{nperm}{The number of times to permute the rows and columns of \code{Dy}.}
 }
 \value{
-A list contains dCor coefficient and permutation p-value.
+A list contains RV coefficient and permutation P value.
 }
 \description{
 This function performs dCor test for association between two distance matrices and computes permutation 
-p-value. Permutation p-value is computed by randomly permuting rows and columns of the 
+P value. Permutation P value is computed by randomly permuting rows and columns of the 
 second distance matrix.
 }
 \examples{
@@ -33,6 +33,6 @@ dCorTest(Dx = distX, Dy = distY, nperm = 1000)
 
 }
 \references{
-G. J. Szekely, M. L. Rizzo,and N. K. Bakirov. (2007). Measuring and testing dependence 
+G. J. Szekely, M. L. Rizzo, and N. K. Bakirov. (2007). Measuring and testing dependence 
              by correlation of distances. The Annals of Statistics, 35(6):2769 - 2794.
 }

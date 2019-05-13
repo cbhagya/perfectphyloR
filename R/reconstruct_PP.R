@@ -16,19 +16,21 @@
 #'
 #' @param hapMat    A data structure of class \code{hapMat}. Eg: created by the \code{\link{createHapMat}}
 #'                  function.
-#' @param focalSNV  The column number of the focal SNV at which to reconstruct the perfect phylogeny.
+#' @param focalSNV  The column number of the focal SNV at which to reconstruct the reconstructed partitions.
 #' @param minWindow Minimum number of SNVs around the focal SNV in the window of SNVs used to reconstruct the
-#'                  perfect phylogeny.
+#'                  partitions.
 #' @param sep       Character string separator to separate haplotype names for haplotypes
 #'                  that can not be distingushed in the window around the focal point. For example, if a tip is comprised
 #'                  of haplotypes "h1" and "h3", and sep = "-", then the tip label will be "h1-h3". See
 #'                  details.
 #'
-#' @return An object of class \code{phylo} that represents the reconstructed partitions.
+#' @return An object of class \code{phylo} with indices of the column boundaries of the \code{hapMat} object 
+#'         that were used to reconstruct the partition in the window of SNVs.
+#'         
 #'
-#' @references  Gusfield, D. (1991). Efficient algorithms for inferring evolutionary trees.
+#' @references  Gusfield, D. (1991) Efficient algorithms for inferring evolutionary trees.
 #'              Networks, 21(1), 19-28.
-#' @references  Mailund, T., Besenbacher, S., & Schierup, M. H. (2006). Whole genome association
+#' @references  Mailund, T., Besenbacher, S., and Schierup, M. H. (2006) Whole genome association
 #'              mapping by incompatibilities and local perfect phylogenies. BMC Bioinformatics, 7(1),
 #'              454.
 #'
@@ -38,22 +40,34 @@
 #'
 #' data(ex_hapMatSmall_data)
 #'
-#' rDend <- reconstructPP(hapMat = ex_hapMatSmall_data,
+#' rdend <- reconstructPP(hapMat = ex_hapMatSmall_data,
 #'                       focalSNV = 10,
 #'                       minWindow = 1,
 #'                       sep = "-")
 #'
 #' # Plot the reconstructed perfect phylogeney.
 #' 
-#' plotDend(rDend, direction="down")
+#' plotDend(rdend, direction = "down")
+#' 
+#' # Extract the positions of lower and upper bounds of window of SNVs 
+#' # to reconstruct partition in `hapMat` object.
+#' 
+#' ex_hapMatSmall_data$posns[rdend$snvWinIndices]
+#'   
 
 reconstructPP = function(hapMat, focalSNV, minWindow = 1, sep = "-") {
 
-  # Step 1: Select a window of SNVs about a focal SNV.
-  snvWin <- selectWindow(hapMat, focalSNV, minWindow)
-  #-----------------------------------------------------------------#
-  # Step 2: Build the tree for the window of SNVs from step 1.
-  dend <- buildDend(snvWin, sep = sep)
-
-  return(dend)
+    
+    # Step 1: Select a window of SNVs about a focal SNV.
+    snvWin <- selectWindow(hapMat, focalSNV, minWindow)
+    #  The indices of the columns of the hapMat object that were used in the window.
+    snvWinIndices <- which(colnames(hapMat$hapmat) %in% colnames(snvWin$hapMat$hapmat)) 
+    #-----------------------------------------------------------------#
+    # Step 2: Build the tree for the window of SNVs from step 1.
+    dend <- buildDend(snvWin, sep = sep)
+    # Left bound and the right bound of the window of SNVs.
+    dend$snvWinIndices = snvWinIndices[c(1, length(snvWinIndices))]
+    
+    return(dend)
+    
 }

@@ -14,11 +14,11 @@ MantelTest(Dx, Dy, nperm)
 \item{nperm}{The number of times to permute the rows and columns of \code{Dy}.}
 }
 \value{
-A list contains Mantel statistic and permutation p-value.
+A list contains Mantel statistic and permutation P value.
 }
 \description{
-This function performs Mantel test for correlation between two matrices. It 
-computes p-value by randomly permuting rows and columns of the second matrix.
+This function performs Mantel test for correlation between two distance matrices. It 
+computes P value by randomly permuting rows and columns of the second matrix.
 }
 \examples{
 

@@ -10,7 +10,7 @@
 #' @param posns    A numeric vector specifying the genomic positions (e.g. in base pairs) of SNVs in the
 #'                 columns of \code{hapmat}.
 #'
-#' @return An object of \code{hapMat}.
+#' @return An object of class \code{hapMat}.
 #' @export
 #'
 #' @examples

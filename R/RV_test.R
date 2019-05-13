@@ -1,16 +1,16 @@
 
 #' RV test for association of two distance matrices
 #' 
-#' This function performs RV test for similarity of two matrices. It permutes rows and columns
-#' of the second matrix randomly to calculate p-value.
+#' This function performs RV test for similarity of two distance matrices. It permutes rows and columns
+#' of the second matrix randomly to calculate P value.
 #'
 #' @param Dx  A numeric matrix of pairwise distances.
 #' @param Dy  A second numeric matrix of pairwise distances.
 #' @param nperm The number of times to permute  the rows and columns of \code{Dy}.
 #'
-#' @return A list contains RV coefficient and permutation p-value.
+#' @return A list contains RV coefficient and permutation P value.
 #' 
-#' @references Robert, P. and Escoufier, Y. (1976).A Unifying tool for linear multivariate statistical
+#' @references Robert, P. and Escoufier, Y. (1976) A Unifying tool for linear multivariate statistical
 #'             methods: the RV-coefficient. Applied Statistics, Vol.25, No.3, p. 257-265.
 #' @export
 #'

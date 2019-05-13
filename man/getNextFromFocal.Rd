@@ -13,7 +13,7 @@ getNextFromFocal(current, absDist)
 }
 \value{
 The index of the SNV that is nearest to the focal SNV but outside the current neighborhood.
-        To be returned to \code{\link{findSNVs}}??.
+        To be returned to \code{\link{findSNVs}}.
 }
 \description{
 This function finds the next SNV to be checked for compatability with the existing window of SNVs.

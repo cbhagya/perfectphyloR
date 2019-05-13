@@ -4,19 +4,21 @@
 \alias{RandIndexTest}
 \title{Rand Index Test}
 \usage{
-RandIndexTest(dend1, dend2, k, nperm)
+RandIndexTest(dend1, dend2, k = 2, nperm)
 }
 \arguments{
-\item{dend1}{An object of type \code{phylo}}
+\item{dend1}{An object of type \code{phylo}.}
 
-\item{dend2}{A second object of type \code{phylo}}
+\item{dend2}{A second object of type \code{phylo}.}
 
-\item{k}{The number of clusters that the dendrogram should be cut into.}
+\item{k}{An integer that specifies the number of clusters that the dendrogram should be cut into. 
+The default is \code{k = 2}. Clusters are defined by starting from the root of the dendrogram and 
+cutting across.}
 
-\item{nperm}{The number of times to permute tips in \code{dend2}.}
+\item{nperm}{The number of times to permute tips of the \code{dend2}.}
 }
 \value{
-A numeric value between 0 and 1 and permutation p-value.
+A numeric value between 0 and 1 and permutation P value.
 }
 \description{
 This function performs Rand index test for association between two \code{phylo} objects.
@@ -24,12 +26,12 @@ This function performs Rand index test for association between two \code{phylo} 
 \examples{
 
 data(ex_hapMat_data)
-tr1 <- reconstructPP(ex_hapMat_data, focalSNV = 1, minWindow = 1)
-tr2 <- reconstructPP(ex_hapMat_data, focalSNV = 5, minWindow = 1)
-RandIndexTest(dend1 = tr1,  dend2 = tr2, k = 5, nperm = 1000)
+d1 <- reconstructPP(ex_hapMat_data, focalSNV = 1, minWindow = 1)
+d2 <- reconstructPP(ex_hapMat_data, focalSNV = 5, minWindow = 1)
+RandIndexTest(dend1 = d1,  dend2 = d2, k = 5, nperm = 100)
 
 }
 \references{
-Rand, W.M. (1971). Objective criteria for the evaluation of clustering methods.
- Journal of the American Statistical Association 66: 846-850.
+Rand, W.M. (1971) Objective criteria for the evaluation of clustering methods.
+            Journal of the American Statistical Association 66: 846-850.
 }

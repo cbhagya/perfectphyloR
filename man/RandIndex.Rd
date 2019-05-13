@@ -7,11 +7,9 @@
 RandIndex(group1, group2)
 }
 \arguments{
-\item{dend1}{Partition 1}
+\item{group1}{First group.}
 
-\item{dend2}{Partition 2}
-
-\item{k}{The number of clusters that the dendrogram should be cut into.}
+\item{group2}{Second group.}
 }
 \value{
 A numeric value between 0 and 1.

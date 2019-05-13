@@ -2,7 +2,7 @@
 % Please edit documentation in R/association_tests_utility_functions.R
 \name{performTest}
 \alias{performTest}
-\title{Utility function 2}
+\title{Perform the user-provided association test}
 \usage{
 performTest(Dx, Dy, testname, nperm)
 }
@@ -17,6 +17,6 @@ mantel test, "RV" for RV test and "RI" for Rand index test.}
 \item{nperm}{Numer of permutations.}
 }
 \description{
-This function directs to be performed the user-given method.
+This function directs to perform the user-given method.
 }
 \keyword{internal}

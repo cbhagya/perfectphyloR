@@ -7,7 +7,7 @@
 createHapMat(hapmat, snvNames, hapNames, posns)
 }
 \arguments{
-\item{hapmat}{A matrix of 0's and 1's, with rows representing haplotypes and columns representing
+\item{hapmat}{A matrix of 0's and 1's, with rows representing haplotypes and columns representing 
 single-nucleotide variants (SNVs).}
 
 \item{snvNames}{A vector of names of SNVs for the columns of \code{hapmat}.}
@@ -18,7 +18,7 @@ single-nucleotide variants (SNVs).}
 columns of \code{hapmat}.}
 }
 \value{
-An object of \code{hapMat}.
+An object of class \code{hapMat}.
 }
 \description{
 This function creates a \code{hapMat} data object, a required input for \code{\link{reconstructPP}}.

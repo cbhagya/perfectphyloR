@@ -3,10 +3,10 @@
 #' 
 #' 
 #' This function performs the Rand Index between a user-supplied comparator dendrogram and the reconstruced dendrograms
-#' at each focal SNV position in a genomic region.
+#' at each focal SNV position in a genomic region. See the section Applications in \code{vignette("perfectphyloR")} for the detailed example.
 #'
-#' @param rdend  A multiphylo object of reconstructed dendrograms at each focal SNV.
-#' @param cdend  A phylo object of the comparator dendrogram.
+#' @param rdend  A \code{multiPhylo} object of reconstructed dendrograms at each focal SNV.
+#' @param cdend  A \code{phylo} object of the comparator dendrogram.
 #' @param hapMat An object of class `hapMat`containing SNV haplotypes.
 #' @param k      An integer that specifies the number of clusters that the dendrogram should be cut into.
 #'               The default is k=2. Clusters are defined by starting from the root of the
@@ -21,17 +21,16 @@
 #' @param main An optional character string for title in the plot that is returned (none by default). 
 #'
 #' @return  A list with the following components:
-#' 
-#'          `Stats`  A vector of observed Rand indices.
-#'          `OmPval` A permutation-based omnibus P value for the test of any association across the genomic 
-#'                   region using the maximum Rand index over the genomic region as the test statistics.
-#'          `mPval`  A vector of marginal P values at each SNV position.
-#'          `plt`    A plot of the association profile of Rand indices over SNV locations in the
-#'                   region of interest.
+#' @return \item{Stats}{  A vector of observed Rand indices.}
+#' @return \item{OmPval}{ A permutation-based omnibus P value for the test of any association across the genomic 
+#'                   region using the maximum Rand index over the genomic region as the test statistics.}
+#' @return \item{mPval}{ A vector of marginal P values at each SNV position.}
+#' @return \item{plt}{ A plot of the association profile of Rand indices over SNV locations in the
+#'                   region of interest.}
 #'          
 #' @export
 #'
-#' @examples  See the section 'Applications' in vignette("perfectphyloR") for the detailed example.
+#'
 #' 
 testDendAssoRI <- function(rdend, cdend, hapMat, k = 2, nperm = 0, xlab = "", ylab = "", main = ""){
   
@@ -84,7 +83,7 @@ testDendAssoRI <- function(rdend, cdend, hapMat, k = 2, nperm = 0, xlab = "", yl
      }
      
      # P-value for over all association. (Omnibus p-value)
-     omPvalue = (sum(apply(permStatMat, 2, max) >= max(trueStats))+1)/(nperm + 1)
+     omPvalue = (sum(apply(permStatMat, 2, max, na.rm = TRUE) >= max(trueStats, na.rm = TRUE))+1)/(nperm + 1)
      
      # Association profile over SNVs
      plt <- plot(hapMat$posns, trueStats, xlab = xlab, ylab = ylab, main = main )

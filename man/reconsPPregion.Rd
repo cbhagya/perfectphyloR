@@ -7,7 +7,7 @@
 reconsPPregion(hapMat, minWindow)
 }
 \arguments{
-\item{hapMat}{A data structure of class \code{hapMat}. See the arguments in \code{\link{reconstructPP}}}
+\item{hapMat}{A data structure of class \code{hapMat}. See the arguments in \code{\link{reconstructPP}}.}
 
 \item{minWindow}{Minimum number of SNVs around the focal SNV in the window of SNVs used to
 reconstruct the perfect phylogeny.}
@@ -19,12 +19,12 @@ An object of class \code{multiPhylo} that contains multiple \code{phylo} objects
 This function reconstructs perfect phylogenies on each possible focal SNV across a genomic region.
 }
 \examples{
+  
+data(ex_hapMatSmall_data)   
+                   
+# Reconstruct partitions across the region of ex_hapMatSmall_data.
+rdends <- reconsPPregion(hapMat = ex_hapMatSmall_data,
+                      minWindow = 1)
 
-data(ex_hapMat_data)
-
-                       
-# Reconstruct partitions across 2747 SNVs.
- rdends <- reconsPPregion(hapMat = ex_hapMat_data,
-                          minWindow = 1)
 
 }

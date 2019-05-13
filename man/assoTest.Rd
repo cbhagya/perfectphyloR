@@ -2,9 +2,10 @@
 % Please edit documentation in R/association_tests_utility_functions.R
 \name{assoTest}
 \alias{assoTest}
-\title{Utility function1}
+\title{Compute the user-provided association statistics}
 \usage{
-assoTest(Dx, Dy, hapMat, nperm, method, xlab = "", ylab = "", main = "")
+assoTest(Dx, Dy, hapMat, nperm, method, xlab = "", ylab = "",
+  main = "")
 }
 \arguments{
 \item{Dx}{A numeric matrix of pairwise distances.}
@@ -14,12 +15,15 @@ assoTest(Dx, Dy, hapMat, nperm, method, xlab = "", ylab = "", main = "")
 \item{hapMat}{An object of \code{hapMat}.}
 
 \item{nperm}{The number of times to permute the rows and columns of \code{Dy}.}
-\item{method}{Association methods. Use "HHG" for HHG test, "dCor" for dCOr test, "Mantel" for 
-mantel test, "RV" for RV test and "RI" for Rand index test.}
-\item{xlab}{An optional character string for the label on the x-axis (none by default).} 
-\item{ylab}{An optional character string for the label on the y-axis (none by default).}
-\item{main}{An optional character string for title (none by default).}
 
+\item{method}{Association methods. Use "HHG" for HHG test, "dCor" for dCor test, "Mantel" for 
+mantel test, "RV" for RV test.}
+
+\item{xlab}{An optional character string for the label on the x-axis(none by default).}
+
+\item{ylab}{An optional character string for the label on the y-axis(none by default).}
+
+\item{main}{An optional character string for title(none by default).}
 }
 \value{
 A list of permutation p-values, corresponding statistics and a plot of association profile 
@@ -28,9 +32,5 @@ A list of permutation p-values, corresponding statistics and a plot of associati
 \description{
 This function computes the user-given association statistics and return the association
 profile over a genomic region.
-}
-
-\seealso{
-\code{\link{HHGtest}}, \code{\link{dCorTest}}, \code{\link{RVtest}}, \code{\link{MantelTest}}, \code{\link{RandIndexTest}}
 }
 \keyword{internal}

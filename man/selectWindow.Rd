@@ -13,9 +13,6 @@ selectWindow(hapMat, focalSNV, minWindow)
 
 \item{minWindow}{Minimum window size of the SNV neighborhood.}
 }
-\value{
-?? Say what this returns to \code{\link{reconstructPP}}
-}
 \description{
 This internal function first identifies as many compatible SNVs as possible around the focal SNV. If the
 neighborhood of compatible SNVs is smaller than a user-defined minimum number of SNVs, this function expands

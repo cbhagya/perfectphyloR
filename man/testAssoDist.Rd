@@ -4,44 +4,49 @@
 \alias{testAssoDist}
 \title{Test the association between a comparator distance matrix, and the reconstructed dendrograms across a genomic region}
 \usage{
-testAssoDist(rdend, cdmat, method, hapMat, nperm = 0, xlab = "", ylab = "", main = "")
+testAssoDist(rdend, cdmat, method, hapMat, nperm = 0, xlab = "",
+  ylab = "", main = "")
 }
 \arguments{
-\item{rdend}{A multiphylo object of reconstructed dendrograms at each focal SNV.}
+\item{rdend}{A \code{multiPhylo} object of reconstructed dendrograms at each focal SNV.}
 
-\item{cdmat}{A comparator matrix of pairwise distances (e.g. pairwise distances between haplotypes of a                comparator dendrogram).}
+\item{cdmat}{A comparator matrix of pairwise distances (e.g. pairwise distances between haplotypes of a 
+comparator dendrogram).}
 
-\item{method}{Association measures. Use "dCor" for dCor test statistic, "HHG" for HHG test statistic,"Mantel" for mantel test statistic, and "RV" for RV coefficient.}
+\item{method}{Association measures. Use "dCor" for dCor test, "HHG" for HHG test, "Mantel" 
+for mantel test, and "RV" for RV test.}
 
 \item{hapMat}{An object of class \code{hapMat} containing SNV haplotypes.}
 
-\item{nperm}{Number of permutations for the test of any association across the genomic region of interest. The              default is \code{nperm = 0}; i.e., association will not be tested.}
+\item{nperm}{Number of permutations for the test of any association across the genomic region of interest.
+The default is \code{nperm = 0}; i.e., association will not be tested.}
 
-\item{xlab}{An optional character string for the label on the x-axis  in the plot that is returned (none              by default).} 
+\item{xlab}{An optional character string for the label on the x-axis  in the plot that is returned
+(none by default).}
 
-\item{ylab}{An optional character string for the label on the y-axis  in the plot that is returned (none              by default).}
+\item{ylab}{An optional character string for the label on the y-axis  in the plot that is returned
+(none by default).}
 
 \item{main}{An optional character string for title  in the plot that is returned (none by default).}
-
 }
 \value{
-A list with the following components: 
+A list with the following components:
 
 \item{Stats}{A vector of observed statistics computed from the user-provided distance association method.}
-\item{OmPval}{A permutation-based omnibus P value for the test of any association across the genomic region               using the maximum statistic over the genomic region as the test statistic.}
-\item{mPval}{A vector of marginal P values at each SNV position.}
-\item{plt}{A plot of the association profile over SNV locations in the region of interest.}
 
+\item{OmPval}{A permutation-based omnibus P value for the test of any association across the genomic region 
+                   using the maximum statistic over the genomic region as the test statistic.}
+
+\item{mPval}{A vector of marginal P values at each SNV position.}
+
+\item{plt}{A plot of the association profile over SNV locations in the region of interest.}
 }
 \description{
-This function calculates and tests the association between a comparator distance matrix, based on any pairwise distance measure, and the reconstructed dendrograms across a genomic region of interest usingassociation measures such as the dCor statistic, HHG statistic, Mantel statistic, and RV coefficient.
+This function calculates and tests the association between a comparator distance matrix, based on
+any pairwise distance measure, and the reconstructed dendrograms across a genomic region of
+interest usingassociation measures such as the dCor statistic, HHG statistic, Mantel statistic, and
+RV coefficient. See the section Applications in \code{vignette("perfectphyloR")} for the detailed example.
 }
-\examples{
-   See the section 'Applications' in vignette("perfectphyloR") for the detailed example.
-
-}
-
-\section{See Also}{
-
+\seealso{
 \code{\link{HHGtest}}, \code{\link{dCorTest}}, \code{\link{RVtest}}, \code{\link{MantelTest}}
 }

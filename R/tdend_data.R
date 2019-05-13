@@ -9,12 +9,16 @@
 #'
 #'
 #'
-#' @format A phylo object from the ape package containing four attributes:
+#' @format { A phylo object from the ape package containing four attributes:
+#' 
 #' \describe{
+#' 
 #' \item{edge}{A matrix containing the node labels and their child nodes.}
 #' \item{Nnode}{The number of nodes.}
 #' \item{tip.label}{A character vector containing the haplotype labels of the true dendrogram.}
-#' \item{edge.length}{ A numeric vector giving the lengths of the branches given by \code{edge}.}
+#' \item{edge.length}{ A numeric vector giving the lengths of the branches given by \code{edge}.
+#' 
+#' }}}
 #' 
 #'
 "tdend"

@@ -4,23 +4,25 @@
 #'
 #' @param dend1 An object of type \code{phylo}.
 #' @param dend2 A second object of type \code{phylo}.
-#' @param k     The number of clusters that the dendrogram should be cut into.
+#' @param k     An integer that specifies the number of clusters that the dendrogram should be cut into. 
+#'              The default is \code{k = 2}. Clusters are defined by starting from the root of the dendrogram and 
+#'              cutting across.
 #' @param nperm The number of times to permute tips of the \code{dend2}.
 #'
-#' @return A numeric value between 0 and 1 and permutation p-value.
+#' @return A numeric value between 0 and 1 and permutation P value.
 #' @export
 #'
-#' @references Rand, W.M. (1971). Objective criteria for the evaluation of clustering methods.
-#'  Journal of the American Statistical Association 66: 846-850.
+#' @references Rand, W.M. (1971) Objective criteria for the evaluation of clustering methods.
+#'             Journal of the American Statistical Association 66: 846-850.
 #'
 #' @examples
 #'
 #' data(ex_hapMat_data)
 #' d1 <- reconstructPP(ex_hapMat_data, focalSNV = 1, minWindow = 1)
 #' d2 <- reconstructPP(ex_hapMat_data, focalSNV = 5, minWindow = 1)
-#' RandIndexTest(dend1 = d1,  dend2 = d2, k = 5, nperm = 1000)
+#' RandIndexTest(dend1 = d1,  dend2 = d2, k = 5, nperm = 100)
 #'
-RandIndexTest <- function(dend1, dend2, k, nperm){
+RandIndexTest <- function(dend1, dend2, k = 2, nperm){
   
   # Ex: Let dend1 = true dend and dend2 = rconstruct dend.
 
@@ -29,31 +31,15 @@ RandIndexTest <- function(dend1, dend2, k, nperm){
   # instead of permuting the rows of hapMat matrix(rows of original haplotype matrix).
   
 
-  group1 = dendextend::cutree(dend1, k = k)
+  g1 = dendextend::cutree(dend1, k = k)
   g2 = dendextend::cutree(dend2, k = k)
   
-  #################
-  
-  splitTips = strsplit(attr(g2,"names"), split="-") 
-  
-  allHaps = unlist(splitTips) 
-  
-  
-  x1 = rep(as.numeric(g2[1]), length(splitTips[[1]]))
-  
-  for(i in 2:length(splitTips)){
-    
-    x2 = rep(as.numeric(g2[i]), length(splitTips[[i]]))
-    x1 = append(x1, x2)
-    
-  }
-  
-  class(x1)
-  attr(x1, "names") = allHaps
+  # splitTips(), utility function to separate haplotypes names for haplotypes, 
+  # if they can not be distinguished in the window around the focal point.   
+  group1 = splitTips(group = g1)
+  group2 = splitTips(group = g2)
   
   
-  ################
-  group2 = x1
   RIObs <- RandIndex(group1, group2)
 
   if(nperm > 0){
@@ -102,4 +88,38 @@ RandIndex = function(group1, group2){
     return(RI)
 }
 
-
+#' Separate haplotype names for haplotypes that can not be distingushed in the window around the focal point
+#' 
+#' This function separates haplotypes names for haplotypes, if they can not be distinguished in the window
+#' around the focal point. 
+#' 
+#'
+#' @param group A numeric vector that represent the group indices returned by \code{cutree()}.
+#'
+#' @return A vector of haplotypes.
+#' 
+#' @export internal
+#'
+#' 
+#' 
+splitTips <- function(group){
+  
+  spltTips = strsplit(attr(group,"names"), split="-") 
+  
+  allHaps = unlist(spltTips) 
+  
+  
+  spltGroup = rep(as.numeric(group[1]), length(spltTips[[1]]))
+  
+  for(i in 2:length(spltTips)){
+    
+    x2 = rep(as.numeric(group[i]), length(spltTips[[i]]))
+    spltGroup = append(spltGroup, x2)
+    
+  }
+  
+  class(spltGroup)
+  attr(spltGroup, "names") = allHaps
+  
+  return(spltGroup)
+}

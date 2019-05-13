@@ -3,16 +3,16 @@
 #' This function calculates and tests the association between a comparator distance matrix, based on
 #' any pairwise distance measure, and the reconstructed dendrograms across a genomic region of
 #' interest usingassociation measures such as the dCor statistic, HHG statistic, Mantel statistic, and
-#' RV coefficient.
+#' RV coefficient. See the section Applications in \code{vignette("perfectphyloR")} for the detailed example.
 #' 
-#' @param rdend A multiphylo object of reconstructed dendrograms at each focal SNV.
+#' @param rdend A \code{multiPhylo} object of reconstructed dendrograms at each focal SNV.
 #' @param cdmat A comparator matrix of pairwise distances (e.g. pairwise distances between haplotypes of a 
 #'                comparator dendrogram).
-#' @param method Association measures. Use "dCor" for dCor test, "HHG" for HHG test,"Mantel" 
+#' @param method Association measures. Use "dCor" for dCor test, "HHG" for HHG test, "Mantel" 
 #'               for mantel test, and "RV" for RV test.
 #' @param hapMat An object of class \code{hapMat} containing SNV haplotypes.
 #' @param nperm Number of permutations for the test of any association across the genomic region of interest.
-#'              The default is `nperm` = 0; i.e., association will not be tested.
+#'              The default is \code{nperm = 0}; i.e., association will not be tested.
 #' 
 #' @param xlab An optional character string for the label on the x-axis  in the plot that is returned
 #'             (none by default). 
@@ -22,20 +22,17 @@
 #'
 #'
 #' @return A list with the following components: 
-#'          
-#'          `Stats` A vector of observed statistics computed from the user-provided distance association method..
-#'          `OmPval` A permutation-based omnibus P value for the test of any association across the genomic region 
-#'                   using the maximum statistic over the genomic region as the test statistic.
-#'          `mPval` A vector of marginal P values at each SNV position.         
-#'          `plt`  A plot of the association profile over SNV locations in the region of interest.
+#' @return \item{Stats}{A vector of observed statistics computed from the user-provided distance association method.}
+#' @return \item{OmPval}{A permutation-based omnibus P value for the test of any association across the genomic region 
+#'                    using the maximum statistic over the genomic region as the test statistic.}
+#' @return \item{mPval}{A vector of marginal P values at each SNV position.}         
+#' @return \item{plt}{A plot of the association profile over SNV locations in the region of interest.}
+#'  
+#'  
 #'          
 #' @export
-#' 
-#' @examples  See the section 'Applications' in vignette("perfectphyloR") for the detailed example.
+#' @seealso \code{\link{HHGtest}}, \code{\link{dCorTest}}, \code{\link{RVtest}}, \code{\link{MantelTest}}
 #'
-#' @seealso \code{\link{HHGtest}}, \code{\link{dCorTest}}, \code{\link{RVtest}}, \code{\link{MantelTest}}, \code{\link{RandIndexTest}}
-#'
-#' 
 #'               
 testAssoDist <- function(rdend, cdmat, method, hapMat, nperm = 0, xlab = "", ylab = "", main = ""){
   

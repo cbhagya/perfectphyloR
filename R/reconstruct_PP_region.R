@@ -3,7 +3,7 @@
 #'
 #' This function reconstructs perfect phylogenies on each possible focal SNV across a genomic region.
 #'
-#' @param hapMat A data structure of class \code{hapMat}. See the arguments in \code{\link{reconstructPP}}
+#' @param hapMat A data structure of class \code{hapMat}. See the arguments in \code{\link{reconstructPP}}.
 #' @param minWindow Minimum number of SNVs around the focal SNV in the window of SNVs used to
 #'                  reconstruct the perfect phylogeny.
 #'
@@ -12,7 +12,8 @@
 #'
 #' @examples
 #'   
-#' data(ex_hapMatSmall_data)                      
+#' data(ex_hapMatSmall_data)   
+#'                    
 #' # Reconstruct partitions across the region of ex_hapMatSmall_data.
 #' rdends <- reconsPPregion(hapMat = ex_hapMatSmall_data,
 #'                       minWindow = 1)

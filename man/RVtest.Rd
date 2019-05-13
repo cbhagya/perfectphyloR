@@ -14,11 +14,11 @@ RVtest(Dx, Dy, nperm)
 \item{nperm}{The number of times to permute  the rows and columns of \code{Dy}.}
 }
 \value{
-A list contains RV coefficient and permutation p-value.
+A list contains RV coefficient and permutation P value.
 }
 \description{
-This function performs RV test for similarity of two matrices. It permutes rows and columns
-of the second matrix randomly to calculate p-value.
+This function performs RV test for similarity of two distance matrices. It permutes rows and columns
+of the second matrix randomly to calculate P value.
 }
 \examples{
 x <- runif(8)
@@ -31,6 +31,6 @@ RVtest(Dx = distX, Dy = distY, nperm = 1000)
 
 }
 \references{
-Robert, P. and Escoufier, Y. (1976).A Unifying tool for linear multivariate statistical
+Robert, P. and Escoufier, Y. (1976) A Unifying tool for linear multivariate statistical
             methods: the RV-coefficient. Applied Statistics, Vol.25, No.3, p. 257-265.
 }

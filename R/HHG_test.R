@@ -1,15 +1,15 @@
 #' HHG test for association of two distance matrices
 #' 
-#' This function performs HHG test to find the association between two matrices. It permutes rows and columns
-#' of the second matrix randomly to calculate p-value.
+#' This function performs HHG test to find the association between two distance matrices. It permutes rows and columns
+#' of the second matrix randomly to calculate P value.
 #'
 #' @param Dx  A numeric matrix of pairwise distances.
 #' @param Dy  A second numeric matrix of pairwise distances.
 #' @param nperm The number of times to permute  the rows and columns of \code{Dy}.
 #'
-#' @return A list contains HHG coefficient and permutation p-value.
+#' @return A list contains HHG coefficient and permutation P value.
 #' 
-#' @references Barak Brill & Shachar Kaufman, based in part on an earlier implementation by Ruth Heller 
+#' @references Barak, B., and Shachar, K., based in part on an earlier implementation by Ruth Heller 
 #' and Yair Heller. (2017). HHG: Heller-Heller-Gorfine Tests of Independence and Equality of Distributions. R
 #' package version 2.2. https://CRAN.R-project.org/package=HHG
 #' @export

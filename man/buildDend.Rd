@@ -19,7 +19,7 @@ dendrogram if they are undistingushable in the window around the focal SNV
 , see the arguments in \code{\link{reconstructPP}}.}
 }
 \value{
-A list of
+An object of class \code{phylo}.
 }
 \description{
 This function builds the perfect phylogeny for the window of SNVs which is selected from function

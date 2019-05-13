@@ -2,7 +2,7 @@
 % Please edit documentation in R/reconstruct_PP.R
 \name{reconstructPP}
 \alias{reconstructPP}
-\title{Reconstruct the perfect phylogeny at a given focal SNV.}
+\title{Reconstruct the perfect phylogeny at a given focal SNV}
 \usage{
 reconstructPP(hapMat, focalSNV, minWindow = 1, sep = "-")
 }
@@ -10,10 +10,10 @@ reconstructPP(hapMat, focalSNV, minWindow = 1, sep = "-")
 \item{hapMat}{A data structure of class \code{hapMat}. Eg: created by the \code{\link{createHapMat}}
 function.}
 
-\item{focalSNV}{The column number of the focal SNV at which to reconstruct the perfect phylogeny.}
+\item{focalSNV}{The column number of the focal SNV at which to reconstruct the reconstructed partitions.}
 
 \item{minWindow}{Minimum number of SNVs around the focal SNV in the window of SNVs used to reconstruct the
-perfect phylogeny.}
+partitions.}
 
 \item{sep}{Character string separator to separate haplotype names for haplotypes
 that can not be distingushed in the window around the focal point. For example, if a tip is comprised
@@ -21,7 +21,8 @@ of haplotypes "h1" and "h3", and sep = "-", then the tip label will be "h1-h3". 
 details.}
 }
 \value{
-An object of class phylo that represents the perfect phylogeny.
+An object of class \code{phylo} with indices of the column boundaries of the \code{hapMat} object 
+        that were used to reconstruct the partition in the window of SNVs.
 }
 \description{
 This function reconstructs the perfect phylogeny at a given focal SNV using the recursive partitioning
@@ -33,29 +34,35 @@ To reconstruct the perfect phylogeny from sequence data, these two steps are fol
 (1) Select a window of SNVs at a given focal SNV.
 (2) Build the perfect phylogey for the window of SNVs. More details can be found in the references.
 
-The following figure shows the reconstructed perfect phylogeny for \code{ex_hapMat_data}.
+The following figure shows the reconstructed partitions at the tenth SNV position of \code{ex_hapMatSmall_data}.
 
 \if{html}{\figure{tree.png}{options: width = "76\%" alt = "Figure: tree.png"}}
-\if{latex}{\figure{tree.pdf}{options: width = 12cm}}
+\if{latex}{\figure{tree.pdf}{options: width = 10cm}}
 }
 \examples{
 
-data(ex_hapMat_data)
+data(ex_hapMatSmall_data)
 
-rDend <- reconstructPP(hapMat = ex_hapMat_data,
-                       focalSNV = 3,
-                       minWindow = 1,
-                       sep = "-")
+rdend <- reconstructPP(hapMat = ex_hapMatSmall_data,
+                      focalSNV = 10,
+                      minWindow = 1,
+                      sep = "-")
 
 # Plot the reconstructed perfect phylogeney.
- 
-plotDend(rDend, direction="down")
+
+plotDend(rdend, direction = "down")
+
+# Extract the positions of lower and upper bounds of window of SNVs 
+# to reconstruct partition in `hapMat` object.
+
+ex_hapMatSmall_data$posns[rdend$snvWinIndices]
+  
 }
 \references{
-Gusfield, D. (1991). Efficient algorithms for inferring evolutionary trees.
+Gusfield, D. (1991) Efficient algorithms for inferring evolutionary trees.
              Networks, 21(1), 19-28.
 
-Mailund, T., Besenbacher, S., & Schierup, M. H. (2006). Whole genome association
+Mailund, T., Besenbacher, S., and Schierup, M. H. (2006) Whole genome association
              mapping by incompatibilities and local perfect phylogenies. BMC Bioinformatics, 7(1),
              454.
 }

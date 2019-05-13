@@ -21,6 +21,7 @@
 #'
 #' @references  Mailund, T., Besenbacher, S., & Schierup, M. H. (2006). Whole genome association mapping
 #'              by incompatibilities and local perfect phylogenies. BMC Bioinformatics, 7(1), 454.
+#'              
 #'
 selectWindow <- function(hapMat, focalSNV, minWindow) {
   # Find the neighborhood.

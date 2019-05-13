@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_SNV_utility_functions.R
 \name{getNextRightFocal}
 \alias{getNextRightFocal}
-\title{Expand the neighborhood to the right.}
+\title{Expand the neighborhood to the right}
 \usage{
 getNextRightFocal(current, absDist)
 }

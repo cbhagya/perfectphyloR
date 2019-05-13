@@ -10,7 +10,7 @@ findSNVs(hapMat, focalSNV, minWindow = 1)
 \item{hapMat}{\code{hapMat} data object.}
 
 \item{focalSNV}{The column number of the focal in the haplotype data matrix
-at which to reconstruct the tree.}
+at which to reconstruct the dendrogram.}
 
 \item{minWindow}{Minimum window size of the SNV neighborhood.}
 }
