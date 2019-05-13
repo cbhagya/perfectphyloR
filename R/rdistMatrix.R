@@ -8,8 +8,8 @@
 #'
 #' @param dend A list of nodes that represents the nested partition of haplotypes.
 #' @param sep  A character string separator for concatenating haplotype labels in the
-#'             dendrogram if they are undistingushable in the window around the focal SNV
-#'             , see the arguments in \code{\link{reconstructPP}}.
+#'             dendrogram if they are undistingushable in the window around the focal SNV.
+#'             See the arguments in \code{\link{reconstructPP}}.
 #'
 #' @return A matrix of pairwise distances between haplotypes.
 #' @export
@@ -51,28 +51,7 @@ rdistMatrix = function(dend, sep = "-"){
   # a vector of haplotypes in tip i.
   allHaps = unlist(splitTips)
   nHaps = length(allHaps)
-  #  newMat = matrix(0,nrow=nHaps,ncol=nHaps)
-  # rownames(newMat) = colnames(newMat) = allHaps
-  # Loop though rows and colums of newMat and fill in with
-  # the appropriate entry of mat. We loop through haplotypes
-  # (rows/cols of newMat) by looping through tips and
-  # then haplotypes within tips. Create two haplotype
-  # counters to count which row and column, respectively,
-  # of newMat we are on as we go through the tips.
-  # hapI = hapJ = 0 # haplotype counters
-  # for(i in 1:length(splitTips)) { # tips for row of newMat
-  #   for(ii in 1:length(splitTips[[i]])) {#haps w/in tips
-  #     hapI = hapI+1
-  #     for(j in 1:length(splitTips)) { # tips for column
-  #       for(jj in 1:length(splitTips[[j]])) {#haps w/in tips
-  #         hapJ = hapJ+1
-  #         newMat[hapI,hapJ] = distmat[i,j]
-  #       }
-  #     }
-  #     hapJ = 0 # reset for next row iteration
-  #   }
-  # }#Return distance matrix with rows/cols ordered by
-  # # haplotype label.
+  
   lenTips = c()
   for(i in 1:length(splitTips)){
     lenTips[i] = length(splitTips[[i]])
