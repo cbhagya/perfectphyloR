@@ -8,4 +8,3 @@
 *.sln text eol=crlf
 *.c text
 *.h text
-*.jpg binary
