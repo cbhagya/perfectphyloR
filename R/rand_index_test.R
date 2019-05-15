@@ -98,7 +98,7 @@ RandIndex = function(group1, group2){
 #'
 #' @return A vector of haplotypes.
 #' 
-#' @export internal
+#' @keywords internal
 #'
 #' 
 #' 

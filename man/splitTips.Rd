@@ -16,3 +16,4 @@ A vector of haplotypes.
 This function separates haplotypes names for haplotypes, if they can not be distinguished in the window
 around the focal point.
 }
+\keyword{internal}

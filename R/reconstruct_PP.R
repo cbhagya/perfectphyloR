@@ -49,8 +49,8 @@
 #' 
 #' plotDend(rdend, direction = "down")
 #' 
-#' # Extract the positions of lower and upper bounds of window of SNVs 
-#' # to reconstruct partition in `hapMat` object.
+#' # Extract the positions of lower and upper limits of a window of SNVs in `hapMat` object 
+#' # to reconstruct the partition, `rdend`.
 #' 
 #' ex_hapMatSmall_data$posns[rdend$snvWinIndices]
 #'   
