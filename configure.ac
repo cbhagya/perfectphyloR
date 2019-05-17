@@ -58,3 +58,6 @@ AC_SUBST([OPENMP_CFLAG], ["${openmp_cflag}"])
 AC_SUBST([OPENMP_FLAG], ["${openmp_flag}"])
 AC_CONFIG_FILES([src/Makevars])
 AC_OUTPUT
+
+autoconf configure.ac --output=configure
+git config --global core.autocrlf input
