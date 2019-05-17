@@ -16,4 +16,4 @@ This word Phylogenies is not misspelled.
 
 ## Downstream Dependencies
 
-Currently, there are no downstream dependencies for this package.
+There are currently no downstream dependencies for this package.
