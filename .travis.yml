@@ -24,6 +24,7 @@ addons:
   
 os:
   - linux
+  - osx
   
 r:
   - 3.4
