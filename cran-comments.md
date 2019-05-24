@@ -1,8 +1,9 @@
 
 ## Test environments
 * local Windows install, R 3.4.2
-* ubuntu 14.04.5 LTS (on travis-ci), R 3.4.4
+* ubuntu 14.04.5 LTS (on travis-ci), R 3.5.3
 * ubuntu 14.04.5 LTS (on travis-ci), R 3.6.0
+* macOS 10.13.3 (on travis-ci), R 3.5.3
 * macOS 10.13.3 (on travis-ci), R 3.6.0
 * win-builder (oldrelease)
 
