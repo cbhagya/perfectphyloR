@@ -53,7 +53,7 @@ library(perfectphyloR)
 #> [1] "hapMat"
 ```
 
-Once the `hapMat` object is created, you can reconstruct the perfect phylogeny partition with the function `reconstructPP()`. To illustrate, we show how to reconstruct partition at the second SNV position of `ex_hapMat`.
+Once the `hapMat` object is created, you can reconstruct the perfect phylogeny partition with the function `reconstructPP()`. To illustrate, we show how to reconstruct the partition at the second SNV position of `ex_hapMat`.
 
 ``` r
 # Reconstruct the partition at the SNV position 2.
