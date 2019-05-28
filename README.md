@@ -3,7 +3,7 @@
 perfectphyloR
 =============
 
-The R package perfectphyloR is to reconstruct perfect phylogenies underlying a sample of DNA sequences, at a focal single-nucleotide variant (SNV). A perfect phylogeny is a rooted binary tree that recursively partitions DNA sequences. Their nested partition structures provide insight into the pattern of ancestry of DNA sequence data. For example, disease sequences may cluster together in a local partition indicating that they arise from a common ancestral haplotypes. Therefore, the availability of an R package that reconstructs perfect phylogenies should be useful to researchers seeking the ancestral structure of their sequence data.
+The R package perfectphyloR reconstructs perfect phylogenies underlying a sample of DNA sequences, at a focal single-nucleotide variant (SNV). A perfect phylogeny is a rooted binary tree that recursively partitions DNA sequences. Their nested partition structures provide insight into the pattern of ancestry of DNA sequence data. For example, disease sequences may cluster together in a local partition indicating that they arise from a common ancestral haplotypes. Therefore, the availability of an R package that reconstructs perfect phylogenies should be useful to researchers seeking the ancestral structure of their sequence data.
 
 Installation
 ------------
@@ -53,7 +53,7 @@ library(perfectphyloR)
 #> [1] "hapMat"
 ```
 
-Once the `hapMat` object is created, you can reconstruct the perfect phylogeny partition with the function `reconstructPP()`. To illustrate, we show how to reconstruct partition at the second SNV position of `ex_hapMat`.
+Once the `hapMat` object is created, you can reconstruct the perfect phylogeny partition with the function `reconstructPP()`. To illustrate, we show how to reconstruct the partition at the second SNV position of `ex_hapMat`.
 
 ``` r
 # Reconstruct the partition at the SNV position 2.
