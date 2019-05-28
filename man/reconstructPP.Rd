@@ -17,8 +17,8 @@ partitions.}
 
 \item{sep}{Character string separator to separate haplotype names for haplotypes
 that can not be distingushed in the window around the focal point. For example, if a tip is comprised
-of haplotypes "h1" and "h3", and sep = "-", then the tip label will be "h1-h3". See
-details.}
+of haplotypes "h1" and "h3", and sep = "-", then the tip label will be "h1-h3". The default 
+value is \code{"-"}. See details.}
 }
 \value{
 An object of class \code{phylo} with indices of the column boundaries of the \code{hapMat} object 
@@ -52,8 +52,8 @@ rdend <- reconstructPP(hapMat = ex_hapMatSmall_data,
 
 plotDend(rdend, direction = "down")
 
-# Extract the positions of lower and upper limits of a window of SNVs in `hapMat` object 
-# to reconstruct the partition, `rdend`.
+# Extract the positions of the lower and upper limits of a window of SNVs in hapMat object 
+# to reconstruct the partition, rdend.
 
 ex_hapMatSmall_data$posns[rdend$snvWinIndices]
   
