@@ -1,7 +1,7 @@
 Package: perfectphyloR
 Type: Package
 Title: Reconstruct Perfect Phylogenies from DNA Sequence Data
-Version: 0.1.0
+Version: 0.1.1
 Date: 2019-05-10
 Author: Charith Karunarathna and Jinko Graham
 Maintainer: Charith Karunarathna <ckarunar@sfu.ca>
@@ -11,8 +11,6 @@ License: GNU General Public License
 Imports: ape, HHG , dendextend, phytools, Rcpp (>= 0.12.16)
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 6.1.1
-Suggests: 
-    knitr,
-    rmarkdown,
-    R.rsp
-VignetteBuilder: R.rsp
+Suggests: knitr,
+          rmarkdown
+VignetteBuilder: knitr
