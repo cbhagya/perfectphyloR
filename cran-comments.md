@@ -5,15 +5,17 @@
 
   * In this submission according to a reviewer's suggestion, I have:
   
-      * fixed the description field in the DESCRIPTION start with "Reconstructs perfect ...".
+      * fixed the 'Description' field in the DESCRIPTION start with "Reconstructs perfect ...".
       * fixed the reference in the 'Description' field of the DESCRIPTION file to be of the form: authors (year) <arXiv:...>.
-      * added more small executable examples in your Rd-files to illustrate the use of the exported function (internal functions) and enabled those examples for automatic testing.
-
+      * added more small executable examples in the Rd-files to illustrate the use of the exported functions (internal functions) and enabled those examples for automatic testing.
+  
+  * I also updated the version number in the DESCRIPTION file to 0.1.3 to reflect the above modification.
+  
 ### Second resubmission in June 2019
 
   * In this submission, vignette files were modified to comply with CRAN requirements.
   
-  * Updated the version number in the DESCRIPTION file to 0.1.2 to reflect the modification in vignette    folder.
+  * Updated the version number in the DESCRIPTION file to 0.1.2 to reflect the modification in vignette folder.
 
 ### First resubmission in June 2019
 
