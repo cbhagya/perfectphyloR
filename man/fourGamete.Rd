@@ -18,4 +18,17 @@ TRUE, if both SNVs are incompatible.
 This function performs the Four-Gamete Test to check the compatability of two SNVs. If all four haplotypes
 (00,10,01,11) are observed for two SNVs, those two SNVs are incompatible.
 }
+\examples{
+
+\dontshow{
+
+data(ex_hapMatSmall_data)
+
+# Check the compatability of two SNVs.
+
+fourGamete(snv1 = ex_hapMatSmall_data$hapmat[, 1], 
+           snv2 = ex_hapMatSmall_data$hapmat[, 2])
+}
+
+}
 \keyword{internal}
