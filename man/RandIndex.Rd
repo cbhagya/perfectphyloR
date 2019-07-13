@@ -19,4 +19,17 @@ This function calculates the Rand index, a  measure of similarity between two
 partitions and returns a value between 0 and 1 reflecting the
 agreement of the partitions.
 }
+\examples{
+
+\dontshow{
+
+g1 <- sample(1:2, size=10, replace=TRUE)
+g2 <- sample(1:3, size=10, replace=TRUE)
+
+RandIndex(g1,g2)
+
+
+}
+
+}
 \keyword{internal}

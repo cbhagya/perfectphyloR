@@ -23,6 +23,23 @@
 #' @keywords internal
 #' @seealso \code{\link{reconstructPP}}, \code{\link{orderSNVs}}, \code{\link{makeDend}}
 #'
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' # First select a window of SNVs about a focal SNV.
+#' 
+#' SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+#'                        focalSNV = 10, minWindow = 1)
+#'                        
+#' # Then, build the partitions for the selected window of SNVs.
+#' 
+#' dend <- buildDend(snvWin = SNV_win, sep = "-")                        
+#' 
+#' }
+#' 
 buildDend <- function(snvWin, sep) {
   # (a) Order SNVs in the window based on (i) age for compatible
   # SNVs and (ii) proximity to the focal SNV for incompatible SNVs.

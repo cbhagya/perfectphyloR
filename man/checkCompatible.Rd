@@ -21,6 +21,19 @@ A logical vector of the same length as \code{current} with entries being \code{T
 This function applies the four-gamete test to the pair of SNVs defined next SNV with each SNV in current neighborhood,
 to check the compatability.
 }
+\examples{
+
+\dontshow{
+
+data(ex_hapMatSmall_data)
+
+# Check the compatibility of a pair of SNVs using Four-Gamete Test.
+
+comptbility <- checkCompatible(current = c(10,10), nextSNV = 11, hapmat = ex_hapMatSmall_data$hapmat)
+
+}
+
+}
 \seealso{
 \code{\link{findSNVs}}, \code{\link{fourGamete}}
 }

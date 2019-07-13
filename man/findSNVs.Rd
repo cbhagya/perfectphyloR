@@ -26,6 +26,18 @@ This process is stopped when there are no more compatible SNVs to the left or ri
 of the focal SNV. If the block of compatible SNVs does not have at least a user-defined minimum number
 of SNVs, this function expands the window to include incompatible SNVs.
 }
+\examples{
+
+\dontshow{
+data(ex_hapMatSmall_data)
+
+# Compatible SNVs about the focal SNV
+
+compSNVs <- findSNVs(hapMat = ex_hapMatSmall_data, focalSNV = 10, minWindow = 1)
+
+}                                         
+
+}
 \seealso{
 \code{\link{selectWindow}}, \code{\link{checkCompatible}}, \code{\link{getnSNVs}},
          \code{\link{getNextFromFocal}}, \code{\link{getNextLeftFocal}}, \code{\link{getNextRightFocal}}

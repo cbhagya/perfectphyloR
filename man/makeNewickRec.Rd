@@ -15,4 +15,25 @@ makeNewickRec(node, sep)
 \description{
 Build the character string of nodes and haplotypes in Newick format
 }
+\examples{
+
+\dontshow{
+
+data(ex_hapMatSmall_data)
+
+# First, select a window of SNVs about a focal SNV.
+SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+                        focalSNV = 10, minWindow = 1)
+                        
+# Then order SNVs in the window.
+ordHapmat <- orderSNVs(snvWin = SNV_win)
+
+# Recursively partition haplotype matrix.
+partitions <- makePartition(hapmat = ordHapmat, splitSNV = 1)
+
+dendStrng <- makeNewickRec(node = partitions, sep = "-")
+
+}
+
+}
 \keyword{internal}

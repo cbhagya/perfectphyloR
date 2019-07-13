@@ -72,6 +72,18 @@ RandIndexTest <- function(dend1, dend2, k = 2, nperm){
 #' @return A numeric value between 0 and 1.
 #' @keywords internal
 #'
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' g1 <- sample(1:2, size=10, replace=TRUE)
+#' g2 <- sample(1:3, size=10, replace=TRUE)
+#' 
+#' RandIndex(g1,g2)
+#'
+#' 
+#' }
+#'
 
 RandIndex = function(group1, group2){
 

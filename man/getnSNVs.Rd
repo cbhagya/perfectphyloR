@@ -16,9 +16,13 @@ A numeric value specifying the number of SNVs returned to \code{\link{findSNVs}}
 This function gives the number of SNVs contained within a given pair of indices of SNVs, inclusively.
 }
 \examples{
+
+\dontshow{
+
 SNV_index = c(2,5)
 getnSNVs(SNV_index) # return 4. i.e. number of SNVs from SNV2 to SNV5, inclusively is 4.
 
+}
 
 }
 \seealso{

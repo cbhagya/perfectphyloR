@@ -16,6 +16,24 @@
 #' @return A nested partition of haplotypes, implemented as a list of nodes, each with two child nodes.
 #'
 #' @seealso \code{\link{makeDend}}, \code{\link{newNode}}, \code{\link{noVariation}}
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' # First, select a window of SNVs about a focal SNV.
+#' SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+#'                         focalSNV = 10, minWindow = 1)
+#'                         
+#' # Then order SNVs in the window.
+#' ordHapmat <- orderSNVs(snvWin = SNV_win)
+#' 
+#' # Recursively partition haplotype matrix.
+#' partitions <- makePartition(hapmat = ordHapmat, splitSNV = 1)
+#' 
+#' }
 #'
 makePartition = function(hapmat, splitSNV) {
   if(nrow(hapmat)==1 || splitSNV>ncol(hapmat)){
@@ -59,6 +77,24 @@ makePartition = function(hapmat, splitSNV) {
 #'
 #' @keywords internal
 #' @seealso \code{\link{makePartition}}
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#'  
+#' data(ex_hapMatSmall_data)  
+#' 
+#' # First, select a window of SNVs about a focal SNV.
+#' SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+#'                         focalSNV = 10, minWindow = 1)
+#'                         
+#' # Then order SNVs in the window.
+#' ordHapmat <- orderSNVs(snvWin = SNV_win)
+#' 
+#' # Create a list of child nodes.
+#' chldNodes <- newNode(hapmat = ordHapmat)
+#' 
+#' }
 #'
 newNode = function(hapmat, child1 = NULL, child0 = NULL, depth = 0) {
   return(list(haps = rownames(hapmat), child1 = child1, child0 = child0, depth = depth))
@@ -73,6 +109,17 @@ newNode = function(hapmat, child1 = NULL, child0 = NULL, depth = 0) {
 #' @return Logical:TRUE, if there is no variation in the SNV; FALSE otherwise.
 #' @keywords internal
 #' @seealso \code{\link{makePartition}}
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)  
+#' 
+#' # Check the variation in a SNV.
+#' noVariation(ex_hapMatSmall_data$hapmat[,1])
+#' 
+#' }
 #'
 noVariation = function(snv) {
   if(sd(snv) == 0) return(TRUE) else return(FALSE)
@@ -91,6 +138,27 @@ noVariation = function(snv) {
 #' @return A character string in Newick format.
 #' @keywords internal
 #' @seealso \code{\link{makeDend}}
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' # First, select a window of SNVs about a focal SNV.
+#' SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+#'                         focalSNV = 10, minWindow = 1)
+#'                         
+#' # Then order SNVs in the window.
+#' ordHapmat <- orderSNVs(snvWin = SNV_win)
+#' 
+#' # Recursively partition haplotype matrix.
+#' partitions <- makePartition(hapmat = ordHapmat, splitSNV = 1)
+#' 
+#' # Dendrogram in Newick format.
+#' newickDend <- dendToNewick(dend = partitions, sep = "-")
+#' 
+#' }
 #'
 dendToNewick = function(dend, sep = "-"){
   # Arguments:
@@ -111,6 +179,27 @@ dendToNewick = function(dend, sep = "-"){
 #'           \code{\link{reconstructPP}}.
 #'
 #' @keywords internal
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' # First, select a window of SNVs about a focal SNV.
+#' SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+#'                         focalSNV = 10, minWindow = 1)
+#'                         
+#' # Then order SNVs in the window.
+#' ordHapmat <- orderSNVs(snvWin = SNV_win)
+#' 
+#' # Recursively partition haplotype matrix.
+#' partitions <- makePartition(hapmat = ordHapmat, splitSNV = 1)
+#' 
+#' dendStrng <- makeNewickRec(node = partitions, sep = "-")
+#' 
+#' }
+#' 
 makeNewickRec = function(node,sep) {
   # leaf nodes have two NULL children, internal nodes have
   # two non-NULL children.

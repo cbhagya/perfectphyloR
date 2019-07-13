@@ -18,6 +18,26 @@ The index of the SNV that is nearest to the focal SNV but outside the current ne
 \description{
 This function finds the next SNV to be checked for compatability with the existing window of SNVs.
 }
+\examples{
+
+\dontshow{
+
+data(ex_hapMatSmall_data)
+
+# Focal SNV   
+focalSNV = 10
+
+# Proximity to the focal SNV.
+absDistFromFocal = abs(ex_hapMatSmall_data$posns - ex_hapMatSmall_data$posns[focalSNV]) 
+
+# Next SNV from the focal SNV
+
+nxtSNV = getNextFromFocal(current = c(focalSNV,focalSNV), absDistFromFocal)
+
+
+}
+
+}
 \seealso{
 \code{\link{findSNVs}}
 }

@@ -20,6 +20,24 @@ Following Gusfield (1991), the first step in building the dendogram is to order 
 their ancestry. Then, following Mailund et al. (2006) the incompatible SNVs are ordered according
 to their proximity to the focal SNV.
 }
+\examples{
+
+\dontshow{
+
+data(ex_hapMatSmall_data)
+
+# First select a window of SNVs about a focal SNV.
+
+SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+                       focalSNV = 10, minWindow = 1)
+                       
+# Then, order the selected window of SNVs around the focal SNV.
+
+ ordSNVwin <- orderSNVs(snvWin = SNV_win)
+
+}
+
+}
 \references{
 Gusfield, D. (1991). Efficient algorithms for inferring evolutionary trees.
              Networks, 21(1), 19-28.

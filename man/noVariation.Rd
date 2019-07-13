@@ -15,6 +15,18 @@ Logical:TRUE, if there is no variation in the SNV; FALSE otherwise.
 \description{
 This function checks the variation in a specified SNV and is applied during the recursive partitioning.
 }
+\examples{
+
+\dontshow{
+
+data(ex_hapMatSmall_data)  
+
+# Check the variation in a SNV.
+noVariation(ex_hapMatSmall_data$hapmat[,1])
+
+}
+
+}
 \seealso{
 \code{\link{makePartition}}
 }

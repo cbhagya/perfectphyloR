@@ -18,6 +18,23 @@
 #' @keywords internal
 #' @seealso \code{\link{buildDend}}, \code{\link{orderColsAncestry}}
 #'
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' # First select a window of SNVs about a focal SNV.
+#' 
+#' SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+#'                        focalSNV = 10, minWindow = 1)
+#'                        
+#' # Then, order the selected window of SNVs around the focal SNV.
+#' 
+#'  ordSNVwin <- orderSNVs(snvWin = SNV_win)
+#' 
+#' }
+#' 
 orderSNVs = function(snvWin) {
   # Input is a list with the following components.
   # - hapMat: the haplotype matrix data structure,

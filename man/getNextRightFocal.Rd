@@ -20,4 +20,20 @@ from \code{\link{getNextFromFocal}} function is incompatible with each SNV in
 the neighborhood of the focal SNV, and this incompatible SNV could be to the
 left of the neighborhood.
 }
+\examples{
+
+\dontshow{
+
+data(ex_hapMatSmall_data)
+
+focalSNV = 10
+# Proximity to the focal SNV.
+absDistFromFocal = abs(ex_hapMatSmall_data$posns - ex_hapMatSmall_data$posns[focalSNV]) 
+
+# Expand the neighborhood to the right.
+nxtRight = getNextRightFocal(current = c(focalSNV,focalSNV) , absDist = absDistFromFocal)
+
+}
+
+}
 \keyword{internal}

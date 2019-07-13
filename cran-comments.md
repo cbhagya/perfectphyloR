@@ -1,6 +1,14 @@
 
 ## Resubmission June 2019:
 
+### Third resubmission in June 2019
+
+  * In this submission according to a reviewer's suggestion, I have:
+  
+      * fixed the description field in the DESCRIPTION start with "Reconstructs perfect ...".
+      * fixed the reference in the 'Description' field of the DESCRIPTION file to be of the form: authors (year) <arXiv:...>.
+      * added more small executable examples in your Rd-files to illustrate the use of the exported function (internal functions) and enabled those examples for automatic testing.
+
 ### Second resubmission in June 2019
 
   * In this submission, vignette files were modified to comply with CRAN requirements.
@@ -25,9 +33,14 @@ for proving me the guidances.
 
 0 errors | 0 warnings | 1 note
 
-Possibly mis-spelled words in DESCRIPTION:Phylogenies (3:28)
+Possibly mis-spelled words in DESCRIPTION:
+  Charith (8:167)
+  Jinko (8:194)
+  Karunarathna (8:177)
+  Phylogenies (3:28)
 
-This word Phylogenies is not misspelled.
+ * The words Charith, Jinko and Karunarathna are not misspelled. These are the names of authors.
+ * The word Phylogenies is not misspelled.
 
 ## Downstream Dependencies
 

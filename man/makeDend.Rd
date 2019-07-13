@@ -19,4 +19,23 @@ An object of class \code{phylo}.
 This function recursively partitions a hapMat object with SNVs ordered by ancestry, and records the
 partitioning in a \code{phylo} object.
 }
+\examples{
+
+\dontshow{
+
+data(ex_hapMatSmall_data)
+
+# First, select a window of SNVs about a focal SNV.
+SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+                        focalSNV = 10, minWindow = 1)
+                        
+# Then order SNVs in the window.
+ordHapmat <- orderSNVs(snvWin = SNV_win)
+
+# Recursive partitioning of sequences. 
+dend <- makeDend(ordHapmat, sep = "-")
+
+}
+
+}
 \keyword{internal}

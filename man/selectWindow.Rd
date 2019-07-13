@@ -20,6 +20,22 @@ the neighborhood by including incompatible SNVs in order of proximity to the foc
 of Mailund et al. (2006). Then the function subsets the columns of the \code{hapMat} data object according
 to the resulting SNV window.
 }
+\examples{
+
+\dontshow{
+data(ex_hapMatSmall_data)
+
+# Neighborhood of SNVs around the focal SNV.
+
+nghborhood <- selectWindow(hapMat = ex_hapMatSmall_data, 
+                           focalSNV = 10, 
+                           minWindow = 1)
+                                                          
+}
+ 
+
+
+}
 \references{
 Mailund, T., Besenbacher, S., & Schierup, M. H. (2006). Whole genome association mapping
              by incompatibilities and local perfect phylogenies. BMC Bioinformatics, 7(1), 454.

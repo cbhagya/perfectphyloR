@@ -13,7 +13,16 @@
 #' @seealso \code{\link{orderSNVs}}
 #' @keywords internal
 #'
-#'
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' # Order SNV by their ancestry.
+#' 
+#' ex_hapMatSmall_data$hapmat[, orderColsAncestry(ex_hapMatSmall_data$hapmat)]
+#' }
 #'
 orderColsAncestry = function(M) {
   tem = as.data.frame(t(M))

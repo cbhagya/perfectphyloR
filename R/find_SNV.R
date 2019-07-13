@@ -18,6 +18,18 @@
 #'
 #' @seealso \code{\link{selectWindow}}, \code{\link{checkCompatible}}, \code{\link{getnSNVs}},
 #'          \code{\link{getNextFromFocal}}, \code{\link{getNextLeftFocal}}, \code{\link{getNextRightFocal}}
+#'          
+#'
+#' @examples 
+#' 
+#' \dontshow{
+#' data(ex_hapMatSmall_data)
+#' 
+#' # Compatible SNVs about the focal SNV
+#' 
+#' compSNVs <- findSNVs(hapMat = ex_hapMatSmall_data, focalSNV = 10, minWindow = 1)
+#' 
+#' }                                         
 #'
 findSNVs = function(hapMat, focalSNV, minWindow = 1) {
 

@@ -18,6 +18,25 @@ neighborhood.}
 \description{
 This function creates a pair of child nodes for a parent node.
 }
+\examples{
+
+\dontshow{
+ 
+data(ex_hapMatSmall_data)  
+
+# First, select a window of SNVs about a focal SNV.
+SNV_win <- selectWindow(hapMat = ex_hapMatSmall_data,
+                        focalSNV = 10, minWindow = 1)
+                        
+# Then order SNVs in the window.
+ordHapmat <- orderSNVs(snvWin = SNV_win)
+
+# Create a list of child nodes.
+chldNodes <- newNode(hapmat = ordHapmat)
+
+}
+
+}
 \seealso{
 \code{\link{makePartition}}
 }

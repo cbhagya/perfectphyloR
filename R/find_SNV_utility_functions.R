@@ -14,6 +14,18 @@
 #' @keywords internal
 #'
 #' @seealso \code{\link{findSNVs}}, \code{\link{fourGamete}}
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' # Check the compatibility of a pair of SNVs using Four-Gamete Test.
+#' 
+#' comptbility <- checkCompatible(current = c(10,10), nextSNV = 11, hapmat = ex_hapMatSmall_data$hapmat)
+#' 
+#' }
 #'
 checkCompatible = function(current, nextSNV, hapmat) {
   # Apply four-gamete test to next SNV paired with each SNV in current.
@@ -34,6 +46,18 @@ checkCompatible = function(current, nextSNV, hapmat) {
 #' @return TRUE, if both SNVs are incompatible.
 #' @keywords internal
 #'
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' # Check the compatability of two SNVs.
+#' 
+#' fourGamete(snv1 = ex_hapMatSmall_data$hapmat[, 1], 
+#'            snv2 = ex_hapMatSmall_data$hapmat[, 2])
+#' }
+#'
 fourGamete = function(snv1,snv2) {
   tab = table(snv1,snv2)
   if(all(tab>0)) return(TRUE) else return(FALSE)
@@ -50,9 +74,13 @@ fourGamete = function(snv1,snv2) {
 #' @seealso \code{\link{findSNVs}}
 #'
 #' @examples
+#' 
+#' \dontshow{
+#' 
 #' SNV_index = c(2,5)
 #' getnSNVs(SNV_index) # return 4. i.e. number of SNVs from SNV2 to SNV5, inclusively is 4.
 #'
+#' }
 #'
 getnSNVs = function(cur) {
   # return number of SNVs from indices cur[1] to cur[2], inclusively.
@@ -71,6 +99,25 @@ getnSNVs = function(cur) {
 #'         To be returned to \code{\link{findSNVs}}.
 #' @keywords internal
 #' @seealso \code{\link{findSNVs}}
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#'
+#' data(ex_hapMatSmall_data)
+#' 
+#' # Focal SNV   
+#' focalSNV = 10
+#' 
+#' # Proximity to the focal SNV.
+#' absDistFromFocal = abs(ex_hapMatSmall_data$posns - ex_hapMatSmall_data$posns[focalSNV]) 
+#'
+#' # Next SNV from the focal SNV
+#' 
+#' nxtSNV = getNextFromFocal(current = c(focalSNV,focalSNV), absDistFromFocal)
+#'
+#' 
+#' }
 #'
 getNextFromFocal = function(current, absDist) {
   # Disqualify distances within current range by setting to Inf.
@@ -96,6 +143,21 @@ getNextFromFocal = function(current, absDist) {
 #' @keywords internal
 #'
 #' @seealso \code{\link{findSNVs}}
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' focalSNV = 10
+#' # Proximity to the focal SNV.
+#' absDistFromFocal = abs(ex_hapMatSmall_data$posns - ex_hapMatSmall_data$posns[focalSNV]) 
+#'
+#' # Expand the neighborhood to the left.
+#' nxtLeft = getNextLeftFocal(current = c(focalSNV,focalSNV) , absDist = absDistFromFocal)
+#' 
+#'}
 #'
 getNextLeftFocal = function(current,absDist) {
   if(current[1]==1) {
@@ -121,6 +183,21 @@ getNextLeftFocal = function(current,absDist) {
 #'
 #' @return An index of a SNV.
 #' @keywords internal
+#' 
+#' @examples 
+#' 
+#' \dontshow{
+#' 
+#' data(ex_hapMatSmall_data)
+#' 
+#' focalSNV = 10
+#' # Proximity to the focal SNV.
+#' absDistFromFocal = abs(ex_hapMatSmall_data$posns - ex_hapMatSmall_data$posns[focalSNV]) 
+#'
+#' # Expand the neighborhood to the right.
+#' nxtRight = getNextRightFocal(current = c(focalSNV,focalSNV) , absDist = absDistFromFocal)
+#' 
+#'}
 #'
 getNextRightFocal = function(current,absDist) {
   if(current[2]==length(absDist)) {
