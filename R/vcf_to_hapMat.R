@@ -24,9 +24,9 @@ vcftohapMat <- function(vcf_file_path){
   }
   
   
-  # import vcf file 
+  # Import vcf file 
   vcf_data <- vcfR::read.vcfR(vcf_file_path)
-  #1.
+  # 1. SNV positions
   SNV_pos = vcf_data@fix[,2]
   
   
