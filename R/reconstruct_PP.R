@@ -58,16 +58,33 @@
 reconstructPP = function(hapMat, focalSNV, minWindow = 1, sep = "-") {
 
     
-    # Step 1: Select a window of SNVs about a focal SNV.
-    snvWin <- selectWindow(hapMat, focalSNV, minWindow)
-    #  The indices of the columns of the hapMat object that were used in the window.
-    snvWinIndices <- which(colnames(hapMat$hapmat) %in% colnames(snvWin$hapMat$hapmat)) 
-    #-----------------------------------------------------------------#
-    # Step 2: Build the tree for the window of SNVs from step 1.
-    dend <- buildDend(snvWin, sep = sep)
-    # Left bound and the right bound of the window of SNVs.
-    dend$snvWinIndices = snvWinIndices[c(1, length(snvWinIndices))]
+  nminWin = round(length(hapMat$posns)*.02, 0)  # 2% of nSNVs for default winsize.
+  
+  
+  # Step 1: Select a window of SNVs about a focal SNV.
+  if(minWindow == 1 & nminWin > 1){
     
-    return(dend)
+    snvWin <- selectWindow(hapMat, focalSNV, minWindow = nminWin)
+    
+  }else if(minWindow == 1 & nminWin == 1){
+    
+    snvWin <- selectWindow(hapMat, focalSNV, minWindow = 1)
+    
+  }else if(minWindow != 1 & nminWin > 1){   
+    snvWin <- selectWindow(hapMat, focalSNV, minWindow = minWindow)
+  }else{
+    snvWin <- selectWindow(hapMat, focalSNV, minWindow = 1)
+  }
+  
+  #  The indices of the columns of the hapMat object that were used in the window.
+  snvWinIndices <- which(colnames(hapMat$hapmat) %in% colnames(snvWin$hapMat$hapmat)) 
+  #-----------------------------------------------------------------#
+  # Step 2: Build the tree for the window of SNVs from step 1.
+  dend <- buildDend(snvWin, sep = sep)
+  # Left bound and the right bound of the window of SNVs.
+  dend$snvWinIndices = snvWinIndices[c(1, length(snvWinIndices))]
+  
+  return(dend)
+  
     
 }
