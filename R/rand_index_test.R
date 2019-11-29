@@ -30,6 +30,10 @@ RandIndexTest <- function(dend1, dend2, k = 2, nperm){
   # P-value by permuting the rows and columns (haplotypes) of the original distance matrix, Dy,
   # instead of permuting the rows of hapMat matrix(rows of original haplotype matrix).
   
+  if (!requireNamespace("dendextend", quietly = TRUE)) {
+    stop("Package \"dendextend\" needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
 
   g1 = dendextend::cutree(dend1, k = k)
   g2 = dendextend::cutree(dend2, k = k)
