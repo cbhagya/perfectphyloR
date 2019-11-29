@@ -8,7 +8,7 @@ plotDend(dend, direction = "downwards")
 }
 \arguments{
 \item{dend}{An object of class \code{phylo} or of class \code{multiPhylo} returned from
-\code{reconstructPP} or \code{reconsPPregion}.}
+\code{reconstructPP} or \code{reconstructPPregion}.}
 
 \item{direction}{A character string specifying the direction of the dendrogram. Four values are
 possible: "downwards" (the default),  "upwards", "leftwards" and "rightwards".}
