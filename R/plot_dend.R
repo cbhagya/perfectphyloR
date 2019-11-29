@@ -3,7 +3,7 @@
 #'  This function plots reconstructed dendrogram in a genomic region.
 #'
 #' @param dend  An object of class \code{phylo} or of class \code{multiPhylo} returned from
-#'              \code{reconstructPP} or \code{reconsPPregion}.
+#'              \code{reconstructPP} or \code{reconstructPPregion}.
 #' @param direction A character string specifying the direction of the dendrogram. Four values are
 #'                  possible: "downwards" (the default),  "upwards", "leftwards" and "rightwards".
 #'
