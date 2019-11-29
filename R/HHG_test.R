@@ -26,6 +26,10 @@
 #'
 HHGtest <- function(Dx, Dy, nperm){
  
+  if (!requireNamespace("HHG", quietly = TRUE)) {
+    stop("Package \"HHG\" needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
 
   hhgObs <- HHG::hhg.test(Dx = Dx, Dy = Dy, nr.perm = 0)$sum.chisq
   
