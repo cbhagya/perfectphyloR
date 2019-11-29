@@ -9,12 +9,12 @@
 #' @export
 #'
 #' @examples
-#' 
+#' \dontrun{
 #' # Specify the file path.
 #' vcf_file_path <- "C:/vcfData/vcfData.vcf.gz"
 #' # Create a hapMat object from the vcf file.
 #' ex_vcf_hapMat <- vcftohapMat(vcf_file_path) 
-#'  
+#' }  
 #' 
 vcftohapMat <- function(vcf_file_path){
    
