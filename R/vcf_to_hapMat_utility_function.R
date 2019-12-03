@@ -3,8 +3,8 @@
 #' @param vcfGeno  genotype matrix extract from vcf file.
 #' @param snvPosns SNV positions in base paris.
 #'
-#' @return
-#' @export internal
+#' @return a list of haplotype data with positions
+#' @keywords internal
 #'
 #'
 extractHaplos <- function(vcfGeno, snvPosns){
