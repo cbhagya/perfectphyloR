@@ -18,7 +18,7 @@
 #'                  function.
 #' @param focalSNV  The column number of the focal SNV at which to reconstruct the reconstructed partitions.
 #' @param minWindow Minimum number of SNVs around the focal SNV in the window of SNVs used to reconstruct the
-#'                  partitions.
+#'                  partitions (default is the maximum of one and 2\% of the total number of the SNVs).
 #' @param sep       Character string separator to separate haplotype names for haplotypes
 #'                  that can not be distingushed in the window around the focal point. For example, if a tip is comprised
 #'                  of haplotypes "h1" and "h3", and sep = "-", then the tip label will be "h1-h3". The default 
