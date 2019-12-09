@@ -1,3 +1,35 @@
+## Resubmission December 8, 2019:
+
+  * In this resubmission, the following changes were made to the package.
+    
+    * included a function to create an object of class hapMat
+      from VCF file.
+    * changed the default value of the argument, minWindow, in the function reconstructPP(), to maximum of one and 2% of the total number of the SNVs.
+    * changed the function name reconsPPregion() to reconstructPPregion().
+    * added an option to the function reconstructPPregion()
+to reconstruct perfect phylogenies between a given range of SNV positions. 
+    * added some warning messages to the function, reconstructPPregion(), to warn about the timing, and to show the current focal SNV of the hapMat object. 
+    * made the packages HHG and dendextend optional to install with the package.
+    * added the bioRxiv preprint of the package as the PDF vignette.
+    * updated the DESCRIPTION file:
+        + updated the version number to 0.2.0 to reflect the new function added, and the modifications of reconstructPP() and reconstructPPregion(). 
+        + included R.rsp as VignetteBuilder.
+        + made the packages HHG, dendextend, vcfR, and R.rsp as suggests.
+      
+  * Test Environments prior to resubmission
+    * local Windows OS install, R 3.4.2
+    * local Linux, R 3.5.0
+    * win-builder (oldrelease)
+
+
+  * R CMD check results
+
+     0 errors | 0 warnings | 1 note
+
+      checking CRAN incoming feasibility ... NOTE
+      Maintainer: 'Charith Karunarathna <ckarunar@sfu.ca>'
+      
+    This submission comes actually from this maintainer, Charith Karunarathna, and not anybody else.   
 
 ## Resubmission June 2019:
 
