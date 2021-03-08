@@ -11,33 +11,22 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::export]]
 
-arma::mat dCor(arma::mat mDx, arma::mat mDy, arma::mat mC){
+double dCor(arma::mat mDx, arma::mat mDy, arma::mat mC){
   
-  arma::mat X = mC*mDx*mC;
-  arma::mat Y = mC*mDy*mC;
+  arma::mat Wx = mC*mDx*mC; 
+  arma::mat Wy = mC*mDy*mC;
   
-  // Get trace(X'Y)
-  arma::mat num1 = arma::diagvec(X*Y);
-  // trace(X'Y) = trace(XY), since X is symmetric matrix.
-  arma::mat num = sum(num1);
   
-  // Compute ||X||*||Y||
+  double num = arma::trace(Wx*Wy);
   
-  // 1. Compute ||X||
-  // ||X|| = sqrt(trace(X*X')) = sqrt(trace(X*X))
-  arma::mat deno1 = arma::diagvec(X*X);
-  arma::mat deno1_1 = arma::sum(deno1);
+  // ||Wx|| = sqrt(trace(Wx*Wx))
+  double deno1 = arma::trace(Wx*Wx);
+  double deno2 = arma::trace(Wy*Wy);
   
-  // 2. Compute ||Y||
-  // ||Y|| = sqrt(trace(Y*Y')) = sqrt(trace(Y*Y))
-  arma::mat deno2 = arma::diagvec(Y*Y);
-  arma::mat deno2_1 = arma::sum(deno2);
   
-  // Compute ||X||*||Y|| = sqrt(trace(XX')*trace(YY'))
-  arma::mat deno = arma::sqrt(deno1_1*deno2_1);
+  double deno = sqrt(deno1*deno2); 
   
-  arma::mat dcor = num/deno ;
-  // Equation 3.3 in Julie Josse, DOI: 10.1214/16-SS116
+  double dcor = sqrt(num/deno);
   return dcor;
   
  
