@@ -1,3 +1,16 @@
+## Resubmission March 7, 2021:
+  
+  * In this submission, a bug in calculating dCor statistics was fixed.
+  
+  * Updated the version number to 0.2.1 to reflect the bug fix. 
+  
+  * Test Environments prior to resubmission
+    * win-builder (oldrelease)
+
+  * R CMD check results
+
+     0 errors | 0 warnings | 0 note
+
 ## Resubmission December 8, 2019:
 
   * In this resubmission, the following changes were made to the package.
