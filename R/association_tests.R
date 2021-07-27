@@ -36,7 +36,7 @@
 #'               
 testAssoDist <- function(rdend, cdmat, method, hapMat, nperm = 0, xlab = "", ylab = "", main = ""){
   
-  if( is.null(cdmat) | class(cdmat) != "matrix" ){
+  if( is.null(cdmat) ){
       
       stop("cdmat should be a distance matrix.")
     
